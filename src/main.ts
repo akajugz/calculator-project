@@ -6,9 +6,7 @@ const screenDisplay = document.querySelector(
 const numbers = document.querySelectorAll(".number");
 const operator = document.querySelectorAll(".operator");
 const allClear = document.querySelector(".data-all-clear");
-const equals = document.querySelector(
-  ".calculator__buttons--actions.operator.data-equals"
-);
+const dataEquals = document.querySelector(".data-equals");
 
 let firstNumber: string = "";
 let calculatorOperator: string = "";
@@ -27,7 +25,10 @@ const handleNumberPress = (event: any) => {
 
 const handleOperatorPress = (event: any) => {
   const target = event.target;
-  calculatorOperator = String(target.innerText);
+  if (target.innerText != "=") {
+    calculatorOperator = String(target.innerText);
+  }
+
   updateHTML();
 };
 
@@ -38,20 +39,25 @@ const handleAllClearPress = () => {
   updateHTML();
 };
 
+
+
 const performCalculation = (
   num1: number,
   operator: string,
   num2: number
 ): number => {
+  console.log(operator);
   switch (operator) {
     case "+":
       return num1 + num2;
     case "-":
       return num1 - num2;
-    case "*":
+    case "X":
       return num1 * num2;
     case "/":
       return num1 / num2;
+    case "%":
+      return num1 / num2 * 100;
     default:
       return NaN;
   }
@@ -64,6 +70,8 @@ const handleEqualsPress = () => {
       calculatorOperator,
       parseFloat(secondNumber)
     );
+    console.log(result);
+
     if (!isNaN(result)) {
       screenDisplay.innerText = result.toFixed(2);
       firstNumber = result.toString();
@@ -91,4 +99,4 @@ operator.forEach((operators) => {
 
 allClear?.addEventListener("click", handleAllClearPress);
 
-equals?.addEventListener("click", handleEqualsPress);
+dataEquals?.addEventListener("click", handleEqualsPress);
