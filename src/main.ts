@@ -25,9 +25,18 @@ const handleNumberPress = (event: any) => {
   updateHTML();
 };
 
+const handleOperatorPress = (event: any) => {
+    const target = event.target;
+    calculatorOperator = String(target.innerText);
+    updateHTML();
+  };
+
 // EVENT LISTENERS
 
 numbers.forEach((number) => {
   number.addEventListener("click", handleNumberPress);
 });
 
+operator.forEach((operators) => {
+    operators.addEventListener("click", handleOperatorPress);
+  });
