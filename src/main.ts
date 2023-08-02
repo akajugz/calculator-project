@@ -28,7 +28,6 @@ const handleOperatorPress = (event: any) => {
   if (target.innerText != "=") {
     calculatorOperator = String(target.innerText);
   }
-
   updateHTML();
 };
 
@@ -38,8 +37,6 @@ const handleAllClearPress = () => {
   secondNumber = "";
   updateHTML();
 };
-
-
 
 const performCalculation = (
   num1: number,
