@@ -31,6 +31,50 @@ const handleOperatorPress = (event: any) => {
   updateHTML();
 };
 
+const handleAllClearPress = () => {
+  firstNumber = "";
+  calculatorOperator = "";
+  secondNumber = "";
+  updateHTML();
+};
+
+const performCalculation = (
+  num1: number,
+  operator: string,
+  num2: number
+): number => {
+  switch (operator) {
+    case "+":
+      return num1 + num2;
+    case "-":
+      return num1 - num2;
+    case "*":
+      return num1 * num2;
+    case "/":
+      return num1 / num2;
+    default:
+      return NaN;
+  }
+};
+
+const handleEqualsPress = () => {
+  if (firstNumber && calculatorOperator && secondNumber) {
+    const result = performCalculation(
+      parseFloat(firstNumber),
+      calculatorOperator,
+      parseFloat(secondNumber)
+    );
+    if (!isNaN(result)) {
+      screenDisplay.innerText = result.toFixed(2);
+      firstNumber = result.toString();
+      calculatorOperator = "";
+      secondNumber = "";
+    } else {
+      screenDisplay.innerText = "Error";
+    }
+  }
+};
+
 const updateHTML = () => {
   screenDisplay.innerText = `${firstNumber} ${calculatorOperator} ${secondNumber}`;
 };
@@ -44,3 +88,7 @@ numbers.forEach((number) => {
 operator.forEach((operators) => {
   operators.addEventListener("click", handleOperatorPress);
 });
+
+allClear?.addEventListener("click", handleAllClearPress);
+
+equals?.addEventListener("click", handleEqualsPress);
