@@ -26,10 +26,14 @@ const handleNumberPress = (event: any) => {
 };
 
 const handleOperatorPress = (event: any) => {
-    const target = event.target;
-    calculatorOperator = String(target.innerText);
-    updateHTML();
-  };
+  const target = event.target;
+  calculatorOperator = String(target.innerText);
+  updateHTML();
+};
+
+const updateHTML = () => {
+  screenDisplay.innerText = `${firstNumber} ${calculatorOperator} ${secondNumber}`;
+};
 
 // EVENT LISTENERS
 
@@ -38,5 +42,5 @@ numbers.forEach((number) => {
 });
 
 operator.forEach((operators) => {
-    operators.addEventListener("click", handleOperatorPress);
-  });
+  operators.addEventListener("click", handleOperatorPress);
+});
