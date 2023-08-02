@@ -10,10 +10,11 @@
     <h1 class="title">Calculator</h1>
     <div class="container">
       <div class="calculator">
-        <div class="calculator__display">
-        </div>
+        <div class="calculator__display"></div>
         <div class="calculator__buttons">
-          <button class="calculator__buttons--actions data-all-clear">AC</button>
+          <button class="calculator__buttons--actions data-all-clear">
+            AC
+          </button>
           <button class="calculator__buttons--actions">+/-</button>
           <button class="calculator__buttons--actions operator">%</button>
           <button class="calculator__buttons--actions operator">/</button>
@@ -42,8 +43,14 @@
           <button class="calculator__buttons--actions number">00</button>
           <button class="calculator__buttons--actions number">0</button>
           <button class="calculator__buttons--actions number">.</button>
-          <button class="calculator__buttons--actions operator data-equals">=</button>
+          <button class="calculator__buttons--actions operator data-equals">
+            =
+          </button>
         </div>
+      </div>
+      <div class="notes">
+        <h3 class="notes__heading">Notes</h3>
+        <input type="text" placeholder="Type your notes for your calculations" class="notes__pad" />
       </div>
     </div>
     <script type="module" src="/src/main.ts"></script>
