@@ -1,7 +1,7 @@
 # calculator-project
 Welcome to my Calculator Project.
 
-In this project we have to create a Calculator using our knowlege in HTML, SCSS and JS/TS to do basic to advanced calculations using our online calculator.
+In this project we have to create a Calculator using our knowledge in HTML, SCSS and JS/TS to do basic to advanced calculations using our online calculator.
 
 There is a creteria that we are working with and it is listed below:
 1. A deployed website (using GitHub Pages)
